@@ -1,3 +1,4 @@
+.#*
 /target
 /classes
 /checkouts
@@ -7,3 +8,7 @@ pom.xml.asc
 *.class
 /.lein-*
 /.nrepl-port
+/.repl
+/out
+/resources/public/js/out
+
