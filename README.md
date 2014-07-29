@@ -1,4 +1,5 @@
 # Bootstrap-CLJS
+================
 
 Bootstrap CLJS is a wrapper around [React Bootstrap](http://github.com/react-bootstrap), inspired by, and in fact largely implemented using [om-tools](https://github.com/Prismatic/om-tools). This means that you can use React Bootstrap components using the same syntax as you'd use with `om-tools.dom`, giving you the following benefits, as directly quoted from their README file:
 
@@ -37,6 +38,8 @@ The project comes with examples translated from [React Bootstrap Components](htt
 ![preview][preview.png]
 
 Open the file `/devcards_src/bootstrap_cljs_devcards.cljs` in your favorite editor and start playing around. Everytime you save the file the changes get compiled and served via [figwheel](http://github.com/bhauman/figwheel), and your browser window should get automatically refreshed so you can see your changes practically in real time.
+
+There is also a [Weasel](https://github.com/tomjakubowski/weasel) browser REPL included with the projects Devcards page. To use it call `(start-repl)` in the `user` namespace and then load up the Devcards page of the project.
 
 ## License
 

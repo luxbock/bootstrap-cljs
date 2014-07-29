@@ -15,7 +15,8 @@
          :plugins [[org.clojure/clojurescript "0.0-2268"]
                    [com.keminglabs/cljx "0.4.0"]
                    [lein-cljsbuild "1.0.3"]
-                   [lein-figwheel "0.1.3-SNAPSHOT"]]}}
+                   [lein-figwheel "0.1.3-SNAPSHOT"]]
+         :source-paths ["src" "devcards_src"]}}
   :cljx {:builds [{:source-paths ["src"]
                    :output-path  "target/generated/src"
                    :rules        :clj}
