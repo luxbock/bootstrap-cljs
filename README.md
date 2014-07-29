@@ -1,5 +1,5 @@
 # Bootstrap-CLJS
-================
+----------------
 
 Bootstrap CLJS is a wrapper around [React Bootstrap](http://github.com/react-bootstrap), inspired by, and in fact largely implemented using [om-tools](https://github.com/Prismatic/om-tools). This means that you can use React Bootstrap components using the same syntax as you'd use with `om-tools.dom`, giving you the following benefits, as directly quoted from their README file:
 
@@ -33,9 +33,9 @@ vs.
 
 ## Usage
 
-The project comes with examples translated from [React Bootstrap Components](http://react-bootstrap.github.io/components.html) page via a very cool project called [Devcards](https://github.com/bhauman/devcards). To see the examples in action do `lein deps` -> `lein cljx once` -> `lein figwheel` and navigate your browser to [http://localhost:3449/index.html#!/bootstrap_cljs_devcards]. If everything went as planned you should see a page that looks something like this:
+The project comes with examples translated from [React Bootstrap Components](http://react-bootstrap.github.io/components.html) page via a very cool project called [Devcards](https://github.com/bhauman/devcards). To see the examples in action do `lein deps` -> `lein cljx once` -> `lein figwheel` and navigate your browser to http://localhost:3449/index.html#!/bootstrap_cljs_devcards . If everything went as planned you should see a page that looks something like this:
 
-![preview][preview.png]
+![preview](preview.png)
 
 Open the file `/devcards_src/bootstrap_cljs_devcards.cljs` in your favorite editor and start playing around. Everytime you save the file the changes get compiled and served via [figwheel](http://github.com/bhauman/figwheel), and your browser window should get automatically refreshed so you can see your changes practically in real time.
 
