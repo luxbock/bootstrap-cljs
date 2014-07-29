@@ -139,18 +139,6 @@
            "Hidden content")
         (range 1 6)))))
 
-;; (defcard ex-9
-;;   (react-card
-;;     (mkdn "## Modals")
-;;     (bs/modal {:title "Modal title"
-;;                :animation false
-;;                :on-request-hide #(js/alert "Hiding!")}
-;;       (dom/div {:class-name "modal-body"}
-;;         "Modal body...")
-;;       (dom/div {:class-name "modal-footer"}
-;;         (bs/button "Close")
-;;         (bs/button {:bs-style "primary"} "Save changes")))))
-
 (defcard ex-9
   (react-card
     (mkdn
