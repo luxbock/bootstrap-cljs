@@ -1,6 +1,10 @@
 # Bootstrap-CLJS
 ----------------
 
+```clojure
+[bootstrap-cljs "0.0.1"]
+```
+
 Bootstrap CLJS is a wrapper around [React Bootstrap](http://github.com/react-bootstrap), inspired by, and in fact largely implemented using [om-tools](https://github.com/Prismatic/om-tools). This means that you can use React Bootstrap components using the same syntax as you'd use with `om-tools.dom`, giving you the following benefits, as directly quoted from their README file:
 
 > `om-tools.dom` mirrors the `om.dom` namespace while using macros and minimal runtime overhead to make the following improvements:

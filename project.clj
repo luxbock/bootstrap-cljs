@@ -1,6 +1,6 @@
-(defproject bootstrap-cljs "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+(defproject bootstrap-cljs "0.0.1"
+  :description "ClojureScript wrapper around React Bootstrap"
+  :url "https://github.com/luxbock/bootstrap-cljs"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :jar-exclusions [#"\.cljx|\.swp|\.swo|\.DS_Store"]
@@ -8,6 +8,9 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [prismatic/om-tools "0.2.2"]
                  [org.clojure/clojurescript "0.0-2268"]]
+  :scm {:name "git"
+        :url "https://github.com/luxbock/bootstrap-cljs"}
+  :deploy-repositories [["clojars" {:creds :gpg}]]
   :profiles
   {:dev {:dependencies [[devcards "0.1.1-SNAPSHOT"]
                         [weasel "0.3.0"]
