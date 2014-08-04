@@ -40,4 +40,3 @@ goog.addDependency("../plumbing/core.js", ['plumbing.core'], ['cljs.core', 'plum
 goog.addDependency("../om_tools/core.js", ['om_tools.core'], ['plumbing.core', 'cljs.core', 'om.core', 'plumbing.fnk.schema']);
 goog.addDependency("../bootstrap_cljs.js", ['bootstrap_cljs'], ['om_tools.dom', 'cljs.core', 'clojure.string']);
 goog.addDependency("../bootstrap_cljs_devcards.js", ['bootstrap_cljs_devcards'], ['devcards.core', 'weasel.repl', 'om_tools.dom', 'om_tools.core', 'cljs.core', 'om.core', 'bootstrap_cljs', 'clojure.string']);
-goog.addDependency("../bootstrap_cljs/core.js", ['bootstrap_cljs.core'], ['om_tools.dom', 'cljs.core', 'clojure.string']);

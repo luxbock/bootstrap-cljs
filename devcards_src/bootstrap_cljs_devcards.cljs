@@ -369,3 +369,29 @@
       (bs/input {:type "text" :addon-before "@"})
       (bs/input {:type "text" :addon-after "♡"})
       (bs/input {:type "text" :addon-before "$"}))))
+
+(defcomponent modal [data owner]
+  (init-state [_]
+              {:visible? false})
+  (render-state [_ {:keys [visible?]}]
+                (dom/div
+                 (mkdn "## Modals")
+                 (bs/button {:on-click #(om/set-state! owner :visible? true)} "Show Modal")
+                 (when visible?
+                   (bs/modal {:title "Example modal"
+                              :backdrop false
+                              :animated false
+                              :on-request-hide #(om/set-state! owner :visible? false)}
+                             (dom/div {:class "modal-body"}
+                                      (mkdn "An example modal, with content."))
+                             (dom/div {:class "modal-footer"}
+                                      (bs/button {:on-click #(om/set-state! owner :visible? false)}
+                                                 "Close")
+                                      (bs/button {:bs-style "primary"
+                                                  :on-click (fn [_]
+                                                              (om/set-state! owner :visible? false)
+                                                              (js/alert "Done!"))}
+                                                 "Done")))))))
+
+(defcard om-modal
+  (dc/om-root-card modal {}))
