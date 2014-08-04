@@ -379,7 +379,6 @@
                  (bs/button {:on-click #(om/set-state! owner :visible? true)} "Show Modal")
                  (when visible?
                    (bs/modal {:title "Example modal"
-                              :backdrop false
                               :animated false
                               :on-request-hide #(om/set-state! owner :visible? false)}
                              (dom/div {:class "modal-body"}
