@@ -399,11 +399,12 @@
   (react-card
     (mkdn
       "## Tables"
-      "###  Set the `striped`, `bordered`, `condensed` or `hover` properties to true to"
-      "control the behavior of the table")
+      (str "###  Set the `striped`, `bordered`, `condensed` or `hover`"
+           " properties to true to control the behavior of the table"))
     (dom/br "")
     (bs/table {:bordered true
-               :striped true}
+               :striped true
+               :hover true}
               (dom/thead
                 (dom/tr
                   (dom/td "Header 1")
