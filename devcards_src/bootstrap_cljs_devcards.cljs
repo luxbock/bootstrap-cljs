@@ -394,3 +394,34 @@
 
 (defcard om-modal
   (dc/om-root-card modal {}))
+
+(defcard ex-18
+  (react-card
+    (mkdn
+      "## Tables"
+      "###  Set the `striped`, `bordered`, `condensed` or `hover` properties to true to"
+      "control the behavior of the table")
+    (dom/br "")
+    (bs/table {:bordered true
+               :striped true}
+              (dom/thead
+                (dom/tr
+                  (dom/td "Header 1")
+                  (dom/td "Header 2")
+                  (dom/td "Header 3")))
+              (dom/tr
+                (dom/td "Cell 1-a")
+                (dom/td "Cell 2-a")
+                (dom/td "Cell 3-a"))
+              (dom/tr
+                (dom/td "Cell 1-b")
+                (dom/td "Cell 2-b")
+                (dom/td "Cell 3-b"))
+              (dom/tr
+                (dom/td "Cell 1-c")
+                (dom/td "Cell 2-c")
+                (dom/td "Cell 3-c"))
+              (dom/tr
+                (dom/td "Cell 1-d")
+                (dom/td "Cell 2-d")
+                (dom/td "Cell 3-d")))))
