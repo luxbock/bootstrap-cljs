@@ -43,6 +43,7 @@
     SplitButton
     SubNav
     TabbedArea
+    Table
     TabPane
     Tooltip
     Well])
