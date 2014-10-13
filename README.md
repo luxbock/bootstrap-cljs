@@ -37,13 +37,21 @@ vs.
 
 ## Usage
 
-The project comes with examples translated from [React Bootstrap Components](http://react-bootstrap.github.io/components.html) page via a very cool project called [Devcards](https://github.com/bhauman/devcards). To see the examples in action do `lein deps` -> `lein cljx once` -> `lein figwheel` and navigate your browser to http://localhost:3449/index.html#!/bootstrap_cljs_devcards . If everything went as planned you should see a page that looks something like this:
+The project comes with examples translated from [React Bootstrap Components](http://react-bootstrap.github.io/components.html) page via a very cool project called [Devcards](https://github.com/bhauman/devcards). To see the examples in action do `lein deps` -> `lein cljx once` -> `lein figwheel` and navigate your browser to `http://localhost:3449/index.html#!/bootstrap_cljs_devcards` . If everything went as planned you should see a page that looks something like this:
 
 ![preview](preview.png)
 
 Open the file `/devcards_src/bootstrap_cljs_devcards.cljs` in your favorite editor and start playing around. Everytime you save the file the changes get compiled and served via [figwheel](http://github.com/bhauman/lein-figwheel), and your browser window should get automatically refreshed so you can see your changes practically in real time.
 
 There is also a [Weasel](https://github.com/tomjakubowski/weasel) browser REPL included with the projects Devcards page. To use it call `(start-repl)` in the `user` namespace and then load up the Devcards page of the project. If you open the JS Console of your browser, you should see a message stating "Opened Websocket REPL connection". You can now start evaluating CLJS expressions in your REPL.
+
+## Alternatives
+
+There's also [om-bootstrap](https://github.com/racehub/om-bootstrap). The key differences are:
+
+- `bootstrap-cljs` (this one right here!) is just a wrapper for React Bootstrap. `om-bootstrap` on the other hand has re-written the React Bootstrap components in ClojureScript, which allows it to take advantage of some performance optimizations that come with using immutable data structures.
+- Because `om-bootstrap` does more work to translate the React Bootstrap components to ClojureScript, there are still a few components missing. No doubt they will be added in time though, as the project is actively developed. 
+- The syntax between the two is slightly different. Both allow you to pass in regular Clojure maps to specify the props of a component, but `bootstrap-cljs` is more similar to `om-tools` in that you can also omit it the map entirely if it's not needed.
 
 ## License
 
