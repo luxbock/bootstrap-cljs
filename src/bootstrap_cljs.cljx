@@ -27,6 +27,10 @@
     Label
     MenuItem
     Modal
+    Modal.Header
+    Modal.Title
+    Modal.Body
+    Modal.Footer
     ModalTrigger
     Nav
     Navbar
@@ -52,7 +56,7 @@
 (defn ^:private gen-bootstrap-inline-fn [tag]
   `(defmacro ~(symbol (kebab-case (str tag)))
      [opts# & children#]
-     (let [ctor# '~(symbol "js" (str "ReactBootstrap." (name tag)))]
+     (let [ctor# '(.createFactory js/React (~(symbol (str ".-" (name tag))) js/ReactBootstrap))]
        (if (om-tools.dom/literal? opts#)
          (let [[opts# children#] (om-tools.dom/element-args opts# children#)]
            (cond
