@@ -1,24 +1,26 @@
 (ns bootstrap-cljs-devcards
-  (:require [devcards.core :as dc :include-macros true]
+  (:require [devcards.system]
+            [devcards.core :as dc :include-macros true]
             [clojure.string :as str]
             [om.core :as om :include-macros true]
             [om-tools.dom :as dom :include-macros true]
             [om-tools.core :refer-macros [defcomponent]]
-            [bootstrap-cljs :as bs :include-macros true]
             [weasel.repl :as repl])
-  (:require-macros [devcards.core :refer [defcard]]))
+  (:require-macros [devcards.core :refer [defcard]]
+                   [bootstrap-cljs :as bs]))
 
 (enable-console-print!)
 
 (repl/connect "ws://localhost:9001" :verbose true)
 
 (devcards.core/start-devcard-ui!)
-(devcards.core/start-figwheel-reloader!)
+
+(swap! devcards.system/app-state assoc-in [:base-card-options :heading] false)
 
 ;; Run `lein figwheel` and open the browser to http://localhost:3449/index.html
 
-(defn mkdn [& mkd-strs] (dc/react-raw (dc/less-sensitive-markdown mkd-strs)))
-(defn react-card [& content] (dc/react-card (dom/div content) {:heading false}))
+(defn mkdn [& mkd-strs] (apply dc/markdown->react mkd-strs))
+(defn react-card [& content] (dom/div content))
 
 (def positions ["left" "top" "bottom" "right"])
 (def styles ["default" "primary" "success" "info" "warning" "danger"])
@@ -29,15 +31,14 @@
     styles))
 
 (defcard buttons-intro
-  (dc/markdown-card
-    "# Bootstrap CLJS"
+  "# Bootstrap CLJS"
     "The examples here are based off [React Bootstrap
     Components](http://react-bootstrap.github.io/components.html) page. As you
     can see, translating the JSX to idiomatic ClojureScript is rather straight
     forward and I've thus not included all of the examples from the page. For
     prop-names you can use either camelCase or kebab-case. In the situations
     where the prop is named but has no parameter, the equivalent in CLJS is
-    `:prop-name true`."))
+    `:prop-name true`.")
 
 (defcard ex-1
   (react-card
@@ -289,7 +290,8 @@
         (bs/button {:on-click #(om/set-state! owner :visible? true)} "Show Alert")))))
 
 (defcard om-closable-alert
-  (dc/om-root-card closable-alert {:visible? true}))
+  (dc/om-root closable-alert)
+  {:visible? true})
 
 (defcard ex-15
   (react-card
@@ -340,7 +342,7 @@
                                 (let [new-value (.. owner -refs -input getValue)]
                                   {:value new-value :length (count new-value)})))})))
 
-(defcard om-input-component (dc/om-root-card input-component {}))
+(defcard om-input-component (dc/om-root input-component))
 
 (defcard ex-17
   (react-card
@@ -377,23 +379,23 @@
                 (dom/div
                  (mkdn "## Modals")
                  (bs/button {:on-click #(om/set-state! owner :visible? true)} "Show Modal")
-                 (when visible?
-                   (bs/modal {:title "Example modal"
-                              :animated false
-                              :on-request-hide #(om/set-state! owner :visible? false)}
-                             (dom/div {:class "modal-body"}
-                                      (mkdn "An example modal, with content."))
-                             (dom/div {:class "modal-footer"}
-                                      (bs/button {:on-click #(om/set-state! owner :visible? false)}
-                                                 "Close")
-                                      (bs/button {:bs-style "primary"
-                                                  :on-click (fn [_]
-                                                              (om/set-state! owner :visible? false)
-                                                              (js/alert "Done!"))}
-                                                 "Done")))))))
+                 (bs/modal {:title "Example modal"
+                            :animated false
+                            :show visible?
+                            :on-hide #(om/set-state! owner :visible? false)}
+                           (dom/div {:class "modal-body"}
+                                    (mkdn "An example modal, with content."))
+                           (dom/div {:class "modal-footer"}
+                                    (bs/button {:on-click #(om/set-state! owner :visible? false)}
+                                               "Close")
+                                    (bs/button {:bs-style "primary"
+                                                :on-click (fn [_]
+                                                            (om/set-state! owner :visible? false)
+                                                            (js/alert "Done!"))}
+                                               "Done"))))))
 
 (defcard om-modal
-  (dc/om-root-card modal {}))
+  (dc/om-root modal))
 
 (defcard ex-18
   (react-card
