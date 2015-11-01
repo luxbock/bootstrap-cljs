@@ -52,26 +52,27 @@
     Tooltip
     Well])
 
-#+clj
-(defn ^:private gen-bootstrap-inline-fn [tag]
-  `(defmacro ~(symbol (kebab-case (str tag)))
-     [opts# & children#]
-     (let [ctor# '(.createFactory js/React (~(symbol (str ".-" (name tag))) js/ReactBootstrap))]
-       (if (om-tools.dom/literal? opts#)
-         (let [[opts# children#] (om-tools.dom/element-args opts# children#)]
-           (cond
-            (every? (complement om-tools.dom/possible-coll?) children#)
-            `(~ctor# ~opts# ~@children#)
+#?(:clj
+    (defn ^:private gen-bootstrap-inline-fn [tag]
+      `(defmacro ~(symbol (kebab-case (str tag)))
+         [opts# & children#]
+         (let [ctor# '(.createFactory js/React (~(symbol (str ".-" (name tag))) js/ReactBootstrap))]
+           (if (om-tools.dom/literal? opts#)
+             (let [[opts# children#] (om-tools.dom/element-args opts# children#)]
+               (cond
+                (every? (complement om-tools.dom/possible-coll?) children#)
+                `(~ctor# ~opts# ~@children#)
 
-            (and (= (count children#) 1) (vector? (first children#)))
-            `(~ctor# ~opts# ~@(-> children# first flatten))
+                (and (= (count children#) 1) (vector? (first children#)))
+                `(~ctor# ~opts# ~@(-> children# first flatten))
 
-            :else
-            `(apply ~ctor# ~opts# (flatten (vector ~@children#)))))
-         `(om-tools.dom/element ~ctor# ~opts# (vector ~@children#))))))
+                :else
+                `(apply ~ctor# ~opts# (flatten (vector ~@children#)))))
+             `(om-tools.dom/element ~ctor# ~opts# (vector ~@children#)))))))
 
-(defmacro ^:private gen-bootstrap-inline-fns []
-  `(do ~@(clojure.core/map gen-bootstrap-inline-fn bootstrap-tags)))
+#?(:clj
+    (defmacro ^:private gen-bootstrap-inline-fns []
+      `(do ~@(clojure.core/map gen-bootstrap-inline-fn bootstrap-tags))))
 
-#+clj
-(gen-bootstrap-inline-fns)
+#?(:clj
+    (gen-bootstrap-inline-fns))
