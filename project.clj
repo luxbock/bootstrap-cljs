@@ -6,9 +6,10 @@
   :jar-exclusions [#"\.cljx\.swp|\.swo|\.DS_Store"]
   :source-paths ["target/generated/src/clj" "src"]
   :resource-paths ["target/generated/src/cljs" "resources"]
-  :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.clojure/clojurescript "1.7.122"]
-                 [prismatic/om-tools "0.3.12"]]
+  :dependencies [[org.clojure/clojure "1.7.0" :scope "provided"]
+                 [org.clojure/clojurescript "1.7.122" :scope "provided"]
+                 [cljsjs/react-bootstrap "0.27.3-0"]
+                 [prismatic/om-tools "0.4.0"]]
   :scm {:name "git"
         :url "https://github.com/luxbock/bootstrap-cljs"}
   :deploy-repositories [["clojars" {:creds :gpg}]]

@@ -7,7 +7,7 @@
             [om-tools.core :refer-macros [defcomponent]]
             [weasel.repl :as repl])
   (:require-macros [devcards.core :refer [defcard]]
-                   [bootstrap-cljs :as bs]))
+                   [bootstrap-cljs.core :as bs]))
 
 (enable-console-print!)
 
