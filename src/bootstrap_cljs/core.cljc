@@ -1,5 +1,7 @@
-(ns bootstrap-cljs
-  (:require [clojure.string :as str]
+(ns bootstrap-cljs.core
+  (:refer-clojure :exclude [use mask])
+  (:require #?(:cljs cljsjs.react-bootstrap)
+            [clojure.string :as str]
             [om-tools.dom :as omt]))
 
 (defn kebab-case
@@ -53,13 +55,13 @@
     Well])
 
 #?(:clj
-    (defn ^:private gen-bootstrap-inline-fn [tag]
-      `(defmacro ~(symbol (kebab-case (str tag)))
-         [opts# & children#]
-         (let [ctor# '(.createFactory js/React (~(symbol (str ".-" (name tag))) js/ReactBootstrap))]
-           (if (om-tools.dom/literal? opts#)
-             (let [[opts# children#] (om-tools.dom/element-args opts# children#)]
-               (cond
+   (defn ^:private gen-bootstrap-inline-fn [tag]
+     `(defmacro ~(symbol (kebab-case (str tag)))
+        [opts# & children#]
+        (let [ctor# '(.createFactory js/React (~(symbol (str ".-" (name tag))) js/ReactBootstrap))]
+          (if (om-tools.dom/literal? opts#)
+            (let [[opts# children#] (om-tools.dom/element-args opts# children#)]
+              (cond
                 (every? (complement om-tools.dom/possible-coll?) children#)
                 `(~ctor# ~opts# ~@children#)
 
@@ -68,11 +70,11 @@
 
                 :else
                 `(apply ~ctor# ~opts# (flatten (vector ~@children#)))))
-             `(om-tools.dom/element ~ctor# ~opts# (vector ~@children#)))))))
+            `(om-tools.dom/element ~ctor# ~opts# (vector ~@children#)))))))
 
 #?(:clj
-    (defmacro ^:private gen-bootstrap-inline-fns []
-      `(do ~@(clojure.core/map gen-bootstrap-inline-fn bootstrap-tags))))
+   (defmacro ^:private gen-bootstrap-inline-fns []
+     `(do ~@(clojure.core/map gen-bootstrap-inline-fn bootstrap-tags))))
 
 #?(:clj
-    (gen-bootstrap-inline-fns))
+   (gen-bootstrap-inline-fns))
