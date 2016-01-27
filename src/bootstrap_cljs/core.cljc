@@ -11,48 +11,71 @@
 
 (def bootstrap-tags
   '[Accordion
-    Affix
     Alert
     Badge
+    Breadcrumb
+    BreadcrumbItem
     Button
     ButtonGroup
+    ButtonInput
     ButtonToolbar
     Carousel
     CarouselItem
     Col
+    CollapsibleNav
+    Dropdown
     DropdownButton
-    DropdownMenu
+    Dropdown.Menu
+    Dropdown.Toggle
     Glyphicon
     Grid
+    Image
     Input
     Jumbotron
     Label
+    ListGroup
+    ListGroupItem
     MenuItem
     Modal
+    ModalBody
+    ModalFooter
+    ModalHeader
+    ModalTitle
+    Modal.Body
+    Modal.Dialog
+    Modal.Footer
     Modal.Header
     Modal.Title
-    Modal.Body
-    Modal.Footer
-    ModalTrigger
     Nav
     Navbar
+    NavbarBrand
+    NavBrand
+    NavDropdown
     NavItem
+    Overlay
     OverlayTrigger
     PageHeader
-    Pager
     PageItem
+    Pager
+    Pagination
     Panel
     PanelGroup
     Popover
     ProgressBar
+    ResponsiveEmbed
     Row
+    SafeAnchor
     SplitButton
-    SubNav
-    TabbedArea
+    SplitButton.Toggle
+    Tab
     Table
-    TabPane
+    Tabs
+    Thumbnail
     Tooltip
-    Well])
+    Well
+    Collapse
+    Fade
+    FormControls.Static])
 
 #?(:clj
    (defn ^:private gen-bootstrap-inline-fn [tag]

@@ -35,7 +35,7 @@ vs.
 
 ## Usage
 
-The project comes with examples translated from [React Bootstrap Components](http://react-bootstrap.github.io/components.html) page via a very cool project called [Devcards](https://github.com/bhauman/devcards). To see the examples in action do `lein deps` -> `lein cljx once` -> `lein figwheel` and navigate your browser to `http://localhost:3449/index.html#!/bootstrap_cljs_devcards` . If everything went as planned you should see a page that looks something like this:
+The project comes with examples translated from [React Bootstrap Components](http://react-bootstrap.github.io/components.html) page via a very cool project called [Devcards](https://github.com/bhauman/devcards). To see the examples in action run `lein figwheel` and navigate your browser to `http://localhost:3449/index.html#!/bootstrap_cljs_devcards` . If everything went as planned you should see a page that looks something like this:
 
 ![preview](preview.png)
 
