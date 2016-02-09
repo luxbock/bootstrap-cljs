@@ -48,7 +48,11 @@
     Modal.Title
     Nav
     Navbar
-    NavbarBrand
+    Navbar.Header
+    Navbar.Toggle
+    Navbar.Brand
+    Navbar.Collapse
+    Navbar
     NavBrand
     NavDropdown
     NavItem
