@@ -1,4 +1,4 @@
-(defproject bootstrap-cljs "0.28.1-0-SNAPSHOT"
+(defproject bootstrap-cljs "0.28.1-0"
   :description "ClojureScript wrapper around React Bootstrap"
   :url "https://github.com/luxbock/bootstrap-cljs"
   :license {:name "Eclipse Public License"
