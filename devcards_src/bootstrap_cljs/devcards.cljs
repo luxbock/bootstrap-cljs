@@ -16,7 +16,8 @@
 
 ;; Run `lein figwheel` and open the browser to http://localhost:3449/index.html
 
-(defn mkdn [& mkd-strs] (apply dc/markdown->react mkd-strs))
+(defn mkdn [& mkd-strs] (dom/div
+                          (apply dc/markdown->react mkd-strs)))
 (defn react-card [& content] (dom/div content))
 
 (def positions ["left" "top" "bottom" "right"])
