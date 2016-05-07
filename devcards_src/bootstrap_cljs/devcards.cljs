@@ -246,12 +246,12 @@
                          (bs/menu-item {:key "4" :divider true})
                          (bs/menu-item {:key "5"} "Separated link"))))
    (dom/hr)
+
    (mkdn "### Tabs")
    (bs/tabs {:default-active-key 2}
-            (map #(bs/tab {:key % :tab (str "Tab " %)}
-                   (dom/div {:style {:padding "10px"}}
-                            (str "Content " %)))
-                 (range 1 7)))
+     (map (fn [num]
+            (bs/tab {:event-key num :title (str "Tab " num)}
+              (dom/div {:style {:padding "10px"}} (str "Content " num)))) (range 1 4)))
    (dom/hr)
    (mkdn "### Pagers")
    (bs/pager
