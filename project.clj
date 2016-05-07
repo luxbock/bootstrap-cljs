@@ -8,14 +8,14 @@
   :resource-paths ["target/generated/src/cljs" "resources"]
   :dependencies [[org.clojure/clojure "1.7.0" :scope "provided"]
                  [org.clojure/clojurescript "1.7.228" :scope "provided"]
-                 [cljsjs/react-bootstrap "0.28.1-1"]
+                 [cljsjs/react-bootstrap "0.29.2-0"]
                  [prismatic/om-tools "0.4.0"]]
   :scm {:name "git"
         :url "https://github.com/luxbock/bootstrap-cljs"}
   :deploy-repositories [["clojars" {:creds :gpg}]]
   :profiles
-  {:dev {:dependencies [[devcards "0.2.1-5"]
-                        [org.omcljs/om "0.9.0"]
+  {:dev {:dependencies [[devcards "0.2.1-6"]
+                        [org.omcljs/om "1.0.0-alpha34"]
                         [com.cemerick/piggieback "0.2.2-SNAPSHOT"]
                         [org.slf4j/slf4j-nop "1.7.13" :scope "test"]
                         [org.clojure/tools.nrepl "0.2.10"]]
