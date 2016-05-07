@@ -358,7 +358,7 @@
                (dom/option {:value "select"} "select (multiple)")
                (dom/option {:value "other"} "..."))
      (bs/input {:type "textarea" :default-value "textarea"})
-     (bs/form-controls-static "static")))
+     (bs/form-control-static "static")))
    (dom/hr)
    (mkdn "## Addons")
    (mkdn "Use `:addon-before` and `:addon-after`")

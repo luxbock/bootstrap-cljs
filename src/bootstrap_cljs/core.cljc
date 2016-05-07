@@ -79,7 +79,7 @@
     Well
     Collapse
     Fade
-    FormControls.Static])
+    FormControl.Static])
 
 #?(:clj
    (defn ^:private gen-bootstrap-inline-fn [tag]
