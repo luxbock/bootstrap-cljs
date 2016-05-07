@@ -249,7 +249,7 @@
    (dom/hr)
 
    (mkdn "### Tabs")
-   (bs/tabs {:default-active-key 2}
+   (bs/tabs {:default-active-key 2 :id "tabs-example"}
      (map (fn [num]
             (bs/tab {:event-key num :title (str "Tab " num)}
               (dom/div {:style {:padding "10px"}} (str "Content " num)))) (range 1 4)))
