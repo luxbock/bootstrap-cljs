@@ -314,58 +314,96 @@
    (dom/div
     (map #(dom/h4 (bs/label {:bs-style %} (str/capitalize %))) styles))))
 
-(defcard ccc (react-card (mkdn "## Input")))
-
-(defcomponent input-component
-  [data owner]
-  (init-state [_] {:value "" :length 0})
-  (render-state [_ {:keys [value length]}]
-                (bs/input
-                 {:type               "text"
-                  :value              value
-                  :placeholder        "Enter some text"
-                  :label              "Working example with validation"
-                  :help               "Validates based on string length."
-                  :bs-style           (condp < length 10 "success" 5 "warning" "error")
-                  :has-feedback       true
-                  :ref                "input"
-                  :group-class-name   "group-class"
-                  :wrapper-class-name "wrapper-class"
-                  :label-class-name   "label-class"
-                  :on-change          #(om/update-state! owner
-                                                         (fn [_]
-                                                           (let [new-value (.. owner -refs -input getValue)]
-                                                             {:value new-value :length (count new-value)})))})))
-
-(defcard om-input-component (dc/om-root input-component))
+(defcard forms-header (react-card (mkdn "# Forms")))
 
 (defcard ex-17
   (react-card
-   (dom/br)
-   (mkdn "Supports `select`, `textarea`, `static` as well as standard HTML
-    input types.")
-   (dom/hr)
-   (dom/div
+    (mkdn "## Supported Controls")
+    (dom/hr)
+    (dom/div
+      (dom/form
+        (bs/form-group {:control-id "formControlsText"}
+          (bs/control-label "Text")
+          (bs/form-control {:type "text" :placeholder "enter text"}))
+
+        (bs/form-group {:control-id "formControlsEmail"}
+          (bs/control-label "Email Address")
+          (bs/form-control {:type "email" :placeholder "enter email"}))
+
+        (bs/form-group {:control-id "formControlsPassword"}
+          (bs/control-label "Password")
+          (bs/form-control {:type "password"}))
+
+        (bs/form-group {:control-id "formControlsFile"}
+          (bs/control-label "File")
+          (bs/form-control {:type "file"})
+          (bs/help-block "Example block-level help text here."))
+
+        (bs/checkbox {:checked true :read-only true} "Checkbox")
+
+        (bs/radio {:checked true :read-only true} "Radio")
+
+        (bs/form-group
+          (bs/checkbox {:inline true} 1)
+          (bs/checkbox {:inline true} 2)
+          (bs/checkbox {:inline true} 3))
+
+        (bs/form-group
+          (bs/radio {:inline true} 1)
+          (bs/radio {:inline true} 2)
+          (bs/radio {:inline true} 3))
+
+        (bs/form-group {:control-id "formControlsSelect"}
+          (bs/control-label "Select")
+          (bs/form-control {:component-class "select" :placeholder "select"}
+            (dom/option {:value "select"} "select")
+            (dom/option {:value "other"} "...")))
+
+        (bs/form-group {:control-id "formControlsSelectMultiple"}
+          (bs/control-label "Multiple Select")
+          (bs/form-control {:component-class "select" :multiple true}
+            (dom/option {:value "select"} "select (multiple)")
+            (dom/option {:value "other"} "...")))
+
+        (bs/form-group {:control-id "formControlsTextarea"}
+          (bs/control-label "Textarea")
+          (bs/form-control {:component-class "textarea" :placeholder "textarea"}))
+
+        (bs/form-group
+          (bs/control-label "Static Text")
+          (bs/form-control-static "email@example.com"))))))
+
+(defcard ex-input-groups
+  (react-card
+    (mkdn "## Input groups")
     (dom/form
-     (bs/input {:type "text" :default-value "text"})
-     (bs/input {:type "password" :default-value "secret"})
-     (bs/input {:type "checkbox" :checked true :read-only true :label "checkbox"})
-     (bs/input {:type "radio" :checked true :read-only true :label "radio"})
-     (bs/input {:type "select" :default-value "select"}
-               (dom/option {:value "select"} "select")
-               (dom/option {:value "other"} "..."))
-     (bs/input {:type "select" :multiple true}
-               (dom/option {:value "select"} "select (multiple)")
-               (dom/option {:value "other"} "..."))
-     (bs/input {:type "textarea" :default-value "textarea"})
-     (bs/form-control-static "static")))
-   (dom/hr)
-   (mkdn "## Addons")
-   (mkdn "Use `:addon-before` and `:addon-after`")
-   (dom/form
-    (bs/input {:type "text" :addon-before "@"})
-    (bs/input {:type "text" :addon-after "♡"})
-    (bs/input {:type "text" :addon-before "$"}))))
+      (bs/form-group
+        (bs/input-group
+          (bs/input-group-addon "@")
+          (bs/form-control {:type "text"})))
+
+      (bs/form-group
+        (bs/input-group
+          (bs/form-control {:type "text"})
+          (bs/input-group-addon ".00")))
+
+      (bs/form-group
+        (bs/input-group
+          (bs/input-group-addon "@")
+          (bs/form-control {:type "text"})
+          (bs/input-group-addon ".00")))
+
+      (bs/form-group
+        (bs/input-group
+          (bs/form-control {:type "text"})
+          (bs/input-group-addon
+            (bs/glyphicon {:glyph "music"}))))
+
+      (bs/form-group
+        (bs/input-group
+          (bs/input-group-button
+            (bs/button "Before"))
+          (bs/form-control {:type "text"}))))))
 
 (defcomponent modal [data owner]
   (init-state [_]

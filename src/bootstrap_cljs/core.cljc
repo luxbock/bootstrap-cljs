@@ -21,16 +21,24 @@
     ButtonToolbar
     Carousel
     CarouselItem
+    Checkbox
     Col
     CollapsibleNav
+    ControlLabel
     Dropdown
     DropdownButton
     Dropdown.Menu
     Dropdown.Toggle
+    FormGroup
+    FormControl
     Glyphicon
     Grid
+    HelpBlock
     Image
     Input
+    InputGroup
+    InputGroup.Addon
+    InputGroup.Button
     Jumbotron
     Label
     ListGroup
@@ -66,6 +74,7 @@
     PanelGroup
     Popover
     ProgressBar
+    Radio
     ResponsiveEmbed
     Row
     SafeAnchor
