@@ -405,6 +405,30 @@
             (bs/button "Before"))
           (bs/form-control {:type "text"}))))))
 
+(defcard validation-states
+  (react-card
+    (mkdn "## Validation states")
+    (mkdn "Set `:validation-state` to one of 'success', 'warning' or
+    'error'. Add `form-control-feedback` for a feedback icon.")
+
+    (bs/form-group {:control-id "formValidationSuccess1" :validation-state "success"}
+      (bs/control-label "Input with success")
+      (bs/form-control {:type "text"})
+      (bs/help-block "Help text with valiation state"))
+
+    (bs/form-group {:control-id "formValidationSuccess1" :validation-state "warning"}
+      (bs/control-label "Input with warning")
+      (bs/form-control {:type "text"}))
+
+    (bs/form-group {:control-id "formValidationSuccess1" :validation-state "error"}
+      (bs/control-label "Input with error")
+      (bs/form-control {:type "text"}))
+
+    (bs/form-group {:control-id "formValidationSuccess1" :validation-state "success"}
+      (bs/control-label "Input with success and feeback icon")
+      (bs/form-control {:type "text"})
+      (bs/form-control-feedback nil))))
+
 (defcomponent modal [data owner]
   (init-state [_]
               {:visible? false})

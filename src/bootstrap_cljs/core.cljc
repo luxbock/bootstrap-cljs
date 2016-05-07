@@ -31,6 +31,7 @@
     Dropdown.Toggle
     FormGroup
     FormControl
+    FormControl.Feedback
     Glyphicon
     Grid
     HelpBlock
