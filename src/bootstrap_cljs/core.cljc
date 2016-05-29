@@ -21,16 +21,25 @@
     ButtonToolbar
     Carousel
     CarouselItem
+    Checkbox
     Col
     CollapsibleNav
+    ControlLabel
     Dropdown
     DropdownButton
     Dropdown.Menu
     Dropdown.Toggle
+    FormGroup
+    FormControl
+    FormControl.Feedback
     Glyphicon
     Grid
+    HelpBlock
     Image
     Input
+    InputGroup
+    InputGroup.Addon
+    InputGroup.Button
     Jumbotron
     Label
     ListGroup
@@ -66,6 +75,7 @@
     PanelGroup
     Popover
     ProgressBar
+    Radio
     ResponsiveEmbed
     Row
     SafeAnchor
@@ -79,7 +89,7 @@
     Well
     Collapse
     Fade
-    FormControls.Static])
+    FormControl.Static])
 
 #?(:clj
    (defn ^:private gen-bootstrap-inline-fn [tag]
