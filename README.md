@@ -26,7 +26,7 @@ vs.
 ```clojure
 (ns example
   (:require [om-tools.dom :as dom :include-macros true]
-            [bootstrap-cljs :as bs :include-macros true]))
+            [bootstrap-cljs.core :as bs :include-macros true]))
 
 (dom/div
   (map #(bs/button {:bs-style %} (str/capitalize %))
