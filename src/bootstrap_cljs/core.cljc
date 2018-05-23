@@ -82,6 +82,9 @@
     SplitButton
     SplitButton.Toggle
     Tab
+    TabContainer
+    TabContent
+    TabPane
     Table
     Tabs
     Thumbnail
